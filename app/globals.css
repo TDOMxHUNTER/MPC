@@ -1,0 +1,315 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  -webkit-user-select: none;
+  -moz-user-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html, body {
+  background: #000000 !important;
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#__next {
+  background: #000000 !important;
+  min-height: 100vh;
+  height: 100%;
+}
+
+body {
+  background: #000000;
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+/* Search and Leaderboard Container */
+.search-leaderboard-container {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+/* Responsive adjustments for new layout */
+@media (max-width: 768px) {
+  .search-leaderboard-container {
+    position: fixed !important;
+    top: 15px !important;
+    left: 15px !important;
+    z-index: 1000 !important;
+  }
+
+  .walletconnect-container {
+    position: fixed !important;
+    top: 15px !important;
+    right: 15px !important;
+    z-index: 1000 !important;
+  }
+
+  .monad-heading {
+    font-size: 2.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .monad-logo {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .floating-monad {
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* Adjust main content spacing on mobile */
+  main {
+    padding: 4rem 1rem 2rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-leaderboard-container {
+    top: 10px !important;
+    left: 10px !important;
+  }
+
+  .walletconnect-container {
+    top: 10px !important;
+    right: 10px !important;
+  }
+
+  .monad-heading {
+    font-size: 1.8rem !important;
+    margin-bottom: 1rem !important;
+    line-height: 1.2 !important;
+    padding: 0 1rem !important;
+    text-align: center !important;
+  }
+
+  .monad-logo {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .floating-monad {
+    margin-bottom: 1rem !important;
+  }
+
+  /* Better mobile spacing */
+  main {
+    padding: 4rem 1rem 2rem !important;
+  }
+
+  /* Smaller text on mobile */
+  p {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+    padding: 0 1rem !important;
+    text-align: center !important;
+  }
+
+  /* Profile card scaling */
+  .profile-card {
+    transform: scale(0.85) !important;
+    margin: 0.5rem auto !important;
+  }
+
+  /* Wallet connect button smaller */
+  .walletconnect-container button {
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .monad-heading {
+    font-size: 1.5rem !important;
+    padding: 0 0.5rem !important;
+  }
+
+  .monad-logo {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  main {
+    padding: 3.5rem 0.5rem 1rem !important;
+  }
+
+  p {
+    font-size: 0.8rem !important;
+    padding: 0 0.5rem !important;
+  }
+
+  /* Profile card scaling */
+  .profile-card {
+    transform: scale(0.75) !important;
+    margin: 0.25rem auto !important;
+  }
+
+  /* Even smaller wallet button */
+  .walletconnect-container button {
+    padding: 6px 10px !important;
+    font-size: 11px !important;
+  }
+}
+
+/* Big Background Monad Logo */
+body::before {
+  content: '';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vmin;
+  height: 60vmin;
+  background-image: url('https://docs.monad.xyz/img/monad_logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.05;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Floating Monad Logo */
+.floating-monad {
+  position: relative;
+  z-index: 50;
+  pointer-events: none;
+  animation: float 6s ease-in-out infinite, glow 4s ease-in-out infinite alternate;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.monad-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 4px 8px rgba(102, 126, 234, 0.3));
+}
+
+.monad-logo:hover {
+  transform: scale(1.05) rotate(2deg);
+}
+
+/* Main Heading Styles */
+.monad-heading {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+  text-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-8px) rotate(-1deg);
+  }
+}
+
+@keyframes glow {
+  0% {
+    filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.3));
+  }
+  100% {
+    filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.7)) drop-shadow(0 0 30px rgba(118, 75, 162, 0.4));
+  }
+}
+
+/* Profile Card Mobile Responsiveness */
+@media (max-width: 768px) {
+  .profile-card {
+    transform: scale(0.9) !important;
+    margin: 1rem auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-card {
+    transform: scale(0.8) !important;
+    margin: 0.5rem auto !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .profile-card {
+    transform: scale(0.75) !important;
+    margin: 0.25rem auto !important;
+  }
+}
+
+/* Ensure no horizontal overflow */
+* {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+html, body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+}
